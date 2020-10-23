@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: fdfs-demo
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1：8848
+      config:
+        server-addr: 127.0.0.1:8848
+        flie-extension: yaml
+        group: DEFAULT_GROUP
