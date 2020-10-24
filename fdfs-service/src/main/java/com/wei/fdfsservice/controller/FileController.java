@@ -4,10 +4,11 @@ import com.wei.fdfsservice.util.CommonFileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
@@ -19,7 +20,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Controller
+@RestController
 public class FileController {
     private final static Logger logger = LoggerFactory.getLogger(FileController.class);
 
@@ -63,7 +64,7 @@ public class FileController {
     }
 
     //使用fastdfs进行文件上传
-    @RequestMapping("/uploadFileToFast")
+    @PostMapping("/uploadFileToFast")
     public String uploadFileToFast(@RequestParam("fileName")MultipartFile file) throws IOException {
 
         if(file.isEmpty()){
@@ -71,7 +72,7 @@ public class FileController {
         }
         String path = fileUtil.uploadFile(file);
         System.out.println(path);
-        return "success";
+        return path;
     }
 
     //使用fastdfs进行文件下载

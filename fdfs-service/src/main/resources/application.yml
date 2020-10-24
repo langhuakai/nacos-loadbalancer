@@ -1,22 +1,7 @@
 server:
-  port: 8008 #服务启动端口
+  port: 8011
 spring:
   application:
-    name: fdfs-service #微服务的名称
-  servlet:
-    multipart:
-      max-file-size: 100MB #单个文件最大尺寸
-      max-request-size: 100MB #一个请求文件的最大尺寸
-      location: F:/temp/ #文件临时存放的位置（本机）
-fdfs:
-  connect-timeout: 600 #读取inputsream阻塞时间
-  so-timeout: 1500
-  tracker-list: 192.168.0.111:22122
-  #缩略图设置
-  thumb-image:
-    height: 150
-    width: 150
-  pool:
-    max-total: 200 #获取最大连接池数量
-  resHost: 192.168.0.111 #通过enginx的访问地址
-  storagePort: 9001
+    name: fdfs-service
+  profiles:
+    active: dev

@@ -1,5 +1,7 @@
 spring:
   application:
-    name: web
+    name: web-service
+  profiles:
+    active: dev
 server:
-  port: 9022
+  port: 8021
